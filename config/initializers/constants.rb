@@ -1,1 +1,1 @@
-SITE_NAME="conflict-minerals.com"
+SITE_NAME="clean-minerals.com"
