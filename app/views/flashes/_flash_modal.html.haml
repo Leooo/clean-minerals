@@ -1,0 +1,11 @@
+#myModalFlash.modal.hide.fade{tabindex:"-1",role:"dialog","aria-labelledby"=>"myModalLabel",
+  "aria-hidden"=>"true","data-backdrop"=>"static"}
+  .modal-header
+    -#%button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button",onclick: "location.reload();"} ×
+    = link_to 'x', current_profile,class:"close"
+    -#"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"
+    %h3#myModalLabel 
+      = "Step up Level"
+  .modal-body
+    = sentence
+  

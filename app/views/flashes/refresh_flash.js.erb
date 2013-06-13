@@ -1,0 +1,14 @@
+$('#flash').prepend("<%= j render partial: 'flashes/flash',locals:{flash:flash}%>");
+<% current_user2.flashes.each do |f| %>
+  <% if f.refresh_javascript==1 && f.big_flash==1  %>
+    //alert('fl');
+    $('#bigflash').prepend("<%= j render partial: 'flashes/flash_modal', locals:{sentence:f.sentence} %>");
+    $("#myModalFlash").modal('toggle');
+    <% f.destroy %>
+  <% end %>
+<% end %>
+<% if current_user.user2.has_level(1) %>
+    refresh_questions();
+<% end %>
+flash();
+

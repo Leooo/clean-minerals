@@ -1,0 +1,8 @@
+-#= debug object.errors
+-#= debug object.errors.any?
+- if object.errors.any?
+  .error_explanation
+    %ul
+      - object.errors.full_messages.each do |msg|
+        %li= displayize(msg)
+

@@ -1,0 +1,29 @@
+-# flash.now[:alert]="InsertTagBankingEndInsert"
+-# flash.now[:info]="info"
+-# flash.now[:success]="success"
+-# flash.now[:error]="error"
+-# flash.now[:error]="error"
+-# build_flash('js')
+- if !flash.blank?
+  - flash.each do |key,value|
+    -#alert(value);
+    - if key[0..7]=="question"
+      .alert-message{class:"success"}
+        %button{type:"button",class:"close",data:{dismiss:"alert"}} &times;
+        %ul.token-input-list-tag-element
+          %li.token-input-token-facebook= value["name"]
+        = value["sentence"]
+    - else
+      - if key[0..6]=="success" || key[0..5]=="access"
+        - my_class="success"
+      - else
+        - my_class="#{key.to_s}"
+      -#.alert-message{class:my_class}4
+      .alert-message{class:"alert alert-error"}
+        %button{type:"button",class:"close",data:{dismiss:"alert"}} &times;
+        = value
+
+    
+
+
+

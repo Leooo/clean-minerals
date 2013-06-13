@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %title= SITE_NAME
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    -#= render 'layouts/shim'
+  %body
+    -#= render 'layouts/header'
+    -#= render 'layouts/right_col'
+    -#= render 'layouts/left_col'
+    .container
+      #bigflash
+      #flash
+        = render partial: 'flashes/flash',locals:{flash:flash}
+      -#= current_user.answer_analysis.av_answer if !current_user.blank? && !current_user.answer_analysis.blank?
+      -# if !key.blank?
+        = debug(User.first.get_name(key))
+      = yield
+      = render 'layouts/footer'
+
+
